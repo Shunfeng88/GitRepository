@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+	</head>
+	<body>
+		<button>22222222222</button>
+	</body>
+	<script>
+		$.ajax({
+			url: "http://localhost:7624/account/IsLogin",
+			method:"POST",
+			success: function(res) {
+				console.log(res);
+			}
+		});
+	</script>
+</html>
