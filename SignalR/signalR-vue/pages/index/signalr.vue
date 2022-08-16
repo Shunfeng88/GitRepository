@@ -32,16 +32,20 @@
 		},
 		onLoad() { 
 			connection.start();
-		},
-		onShow(){
+			
 			connection.on("LoginCallBack", res => {
-				console.log(res);
-			});
+				console.log("LoginCallBack: ", res);
+			});	
 			
 			connection.on("CallBack", res => {
-				console.log("callback: "+ res);
+				console.log("callback: ", res);
 			});
-			
+		
+		
+		},
+		
+		onShow(){	
+		
 			connection.on("JoinTalkCall", res => {
 				console.log(res);
 			});	

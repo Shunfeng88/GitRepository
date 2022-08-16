@@ -43,5 +43,15 @@ namespace ReadExcel.Model
     }
 
 
-
+    public class SymptomsItemInfo
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string part { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string symptom { get; set; }
+    }
 }

@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "zMvgNPfLEb92CXWZSfxabUZXwGcgKsYJ1gEDWN5rje0M4Nzj+YunT+yqNISWGNxktMMLEJMl0aZBfdXd8Zpquw==",
+  "success": true,
+  "projectFilePath": "D:\\Source\\MyRepository\\RedisFormDemo\\RedisFormDemo\\RedisFormDemo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\csrediscore\\3.8.3\\csrediscore.3.8.3.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.linkingcloud.cn/nuget'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}

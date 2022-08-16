@@ -6,15 +6,15 @@ const signalR = require('@microsoft/signalr');
 
 //患者端
 //const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQ0xTMDAxIiwiQ3VzdG9tZXJJRCI6ImFhZjgwY2VmLTA5MzktNDBhZC1iN2M4LTI1MDZjZmI1ZWNkOSIsIkN1c3RvbWVyTmFtZSI6IiIsIkFyZWFJRCI6IiIsIkFyZWFOYW1lIjoiIiwiRW1wbG95ZWVDb2RlIjoiQ0xTMDAxIiwibmJmIjoxNjUxMDQ4ODY5LCJleHAiOjE2NTEwNzA0NjksImlzcyI6Imh0dHBzOi8vbXBsdXMubGlua2luZ2Nsb3VkLmNuLyIsImF1ZCI6InJlc291cmNlX3NlcnZlcl9jb3JlIn0.Os46Q22tIq5DPhtA4Uw91A-phgi9rrc0LyjhMy8EN1c';
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQ0xTMDAxIiwiQ3VzdG9tZXJJRCI6IjA1ZGNjNGE1LTBkZDUtNDViNy1iYmZlLTliMzYzMzgwYTFlMCIsIkN1c3RvbWVyTmFtZSI6IiIsIkFyZWFJRCI6IiIsIkFyZWFOYW1lIjoiIiwiRW1wbG95ZWVDb2RlIjoiQ0xTMDAxIiwibmJmIjoxNjU3NzkwNTg1LCJleHAiOjE2NTc4MTIxODUsImlzcyI6Imh0dHBzOi8vbXBsdXMubGlua2luZ2Nsb3VkLmNuLyIsImF1ZCI6InJlc291cmNlX3NlcnZlcl9jb3JlIn0.4R3Nlq5zVcbJeUiWIlgFvLxIczRjfXxLrsA0wP0hXfM';
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQ1NTMDAxIiwiQ3VzdG9tZXJJRCI6ImFhZjgwY2VmLTA5MzktNDBhZC1iN2M4LTI1MDZjZmI1ZWNkOSIsIkN1c3RvbWVyTmFtZSI6IiIsIkFyZWFJRCI6IiIsIkFyZWFOYW1lIjoiIiwiRW1wbG95ZWVDb2RlIjoiQ1NTMDAxIiwibmJmIjoxNjYwMjk2OTIwLCJleHAiOjE2NjAzMTg1MjAsImlzcyI6Imh0dHBzOi8vbXBsdXMubGlua2luZ2Nsb3VkLmNuLyIsImF1ZCI6InJlc291cmNlX3NlcnZlcl9jb3JlIn0.k2bzwVd0XKQTLBh7soZw1SqraL4ma96zYm2_kcHooL8';
 
 const connection = new signalR.HubConnectionBuilder()
 	//.withUrl("https://mplus.linkingcloud.cn/signalr/talkhub", { accessTokenFactory: () => token })
 	//.withUrl("https://mplus.linkingcloud.cn/signalr/qahub", { accessTokenFactory: () => token })
 	//.withUrl("http://10.81.102.55:6028/qahub", { accessTokenFactory: () => token })
 	//.withUrl("https://mplusmtest.linkingcloud.cn/waiting/waitinghub", { accessTokenFactory: () => token })
-	//.withUrl("http://127.0.0.1:8293/waitinghub", {	accessTokenFactory: () => token})
-	.withUrl("https://fwcs.linkingcloud.cn/waitingapi/waitinghub", {	accessTokenFactory: () => token})
+	.withUrl("http://127.0.0.1:8293/waitinghub", {	accessTokenFactory: () => token})
+	//.withUrl("https://fwcs.linkingcloud.cn/waitingapi/waitinghub", {	accessTokenFactory: () => token})
 	//.withUrl("https://mplusdemo.linkingcloud.cn/signalr/qahub", {	accessTokenFactory: () => token})
 	.withAutomaticReconnect([5000, 5000, 10000, 10000])
 	.build();
