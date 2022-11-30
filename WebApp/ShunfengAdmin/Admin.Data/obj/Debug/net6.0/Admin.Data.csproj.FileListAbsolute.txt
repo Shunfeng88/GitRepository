@@ -1,0 +1,12 @@
+D:\Source\MyRepository\WebApp\ShunfengAdmin\Admin.Data\bin\Debug\net6.0\Admin.Data.deps.json
+D:\Source\MyRepository\WebApp\ShunfengAdmin\Admin.Data\bin\Debug\net6.0\Admin.Data.dll
+D:\Source\MyRepository\WebApp\ShunfengAdmin\Admin.Data\bin\Debug\net6.0\Admin.Data.pdb
+D:\Source\MyRepository\WebApp\ShunfengAdmin\Admin.Data\obj\Debug\net6.0\Admin.Data.csproj.AssemblyReference.cache
+D:\Source\MyRepository\WebApp\ShunfengAdmin\Admin.Data\obj\Debug\net6.0\Admin.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Source\MyRepository\WebApp\ShunfengAdmin\Admin.Data\obj\Debug\net6.0\Admin.Data.AssemblyInfoInputs.cache
+D:\Source\MyRepository\WebApp\ShunfengAdmin\Admin.Data\obj\Debug\net6.0\Admin.Data.AssemblyInfo.cs
+D:\Source\MyRepository\WebApp\ShunfengAdmin\Admin.Data\obj\Debug\net6.0\Admin.Data.csproj.CoreCompileInputs.cache
+D:\Source\MyRepository\WebApp\ShunfengAdmin\Admin.Data\obj\Debug\net6.0\Admin.Data.dll
+D:\Source\MyRepository\WebApp\ShunfengAdmin\Admin.Data\obj\Debug\net6.0\refint\Admin.Data.dll
+D:\Source\MyRepository\WebApp\ShunfengAdmin\Admin.Data\obj\Debug\net6.0\Admin.Data.pdb
+D:\Source\MyRepository\WebApp\ShunfengAdmin\Admin.Data\obj\Debug\net6.0\ref\Admin.Data.dll

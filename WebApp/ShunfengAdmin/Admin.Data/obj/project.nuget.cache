@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "enwvtK/VHwjRU2WzCA2OG/lzSu5zHczzcZ/DWpAQPZl6Dh5vfEznBaKSyEDEDBd3V6Yl+RtTFER2TvzU0L9dIQ==",
+  "success": true,
+  "projectFilePath": "D:\\Source\\MyRepository\\WebApp\\ShunfengAdmin\\Admin.Data\\Admin.Data.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.linkingcloud.cn/nuget'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}
