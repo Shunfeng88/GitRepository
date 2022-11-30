@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Admin.Server
-build_property.ProjectDir = D:\SourceCode\MyRepository\WebApp\ShunfengAdmin\Admin.Server\
+build_property.ProjectDir = D:\Source\MyRepository\WebApp\ShunfengAdmin\Admin.Server\

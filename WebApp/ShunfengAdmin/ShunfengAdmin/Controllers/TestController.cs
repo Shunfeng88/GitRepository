@@ -1,22 +1,20 @@
 ﻿using Admin.Data.Models;
-using Admin.Server;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
+using Admin.Service;
 
 namespace ShunfengAdmin.Controllers
 {
     public class TestController : BaseController
     {
-        private WechatServer _wechatServer;
+        private WechatService _wechatServer;
 
-        public TestController(WechatServer wechatServer)
+        public TestController(WechatService wechatServer)
         {
             _wechatServer = wechatServer;
         }
 
         public async Task<Response> TestWechat()
         {
-            var result = await _wechatServer.getWeather();
+            var result =  _wechatServer.getBirthday();
             return SuccessResponse(result);
         }
     }

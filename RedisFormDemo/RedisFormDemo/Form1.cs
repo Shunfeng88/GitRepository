@@ -303,7 +303,7 @@ namespace RedisFormDemo
             _client.ZAdd(key, (Score, $"A{AIndex}"));
             AIndex++;
             Score++;
-
+            
             refresh();
         }
 

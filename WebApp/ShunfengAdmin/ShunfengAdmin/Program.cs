@@ -1,5 +1,4 @@
-using Admin.Server;
-using Microsoft.OpenApi.Models;
+using Admin.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +20,8 @@ builder.Services.AddHttpClient();
 
 #region ioc
 
-builder.Services.AddScoped<WechatServer>();
+builder.Services.AddScoped<WechatService>();
+builder.Services.AddScoped<FileReadService>();
 
 #endregion
 

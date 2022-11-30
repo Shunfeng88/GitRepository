@@ -1,0 +1,19 @@
+{
+  "app_id": "wx130ab8b0fa17b9ff",
+  "app_secret": "6908631cbe15c10d359240ce69d3e063",
+  "template_id": "2Tn3M__qWiwsksJTnUEIs0TL9TXnyjnS9qcwI1iY0-E",
+  "user": [ "oQLX16EzuIFUKLcFNXwn46U-IeuI", "oQLX16GsomFeDQMXijKTyQs-2gCk" ],
+  "weather_key": "df723dc8c7fe4d7a8e85721011d510f7",
+  "region": "上海市",
+  "birthday": [
+    {
+      "name": "风哥",
+      "birthday": "r1995-01-14"
+    },
+    {
+      "name": "萌子",
+      "birthday": "2021-10-03"
+    }
+  ],
+  "love_date": "2021-05-22"
+}
