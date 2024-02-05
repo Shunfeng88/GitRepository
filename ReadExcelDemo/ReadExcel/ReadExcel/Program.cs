@@ -5,6 +5,9 @@ using ReadExcel.Model;
 
 namespace ReadExcel
 {
+    /// <summary>
+    /// Excel动态列匹配Demo
+    /// </summary>
     public class Program
     {
         static void Main(string[] args)
@@ -13,8 +16,6 @@ namespace ReadExcel
 
             ReadExcel();
 
-            //ReadLabelExcel();
-
             Console.ReadKey();
         }
 
@@ -22,169 +23,21 @@ namespace ReadExcel
         {
             try
             {
-                string filePath = "D:/人体部位症状对应表(728).xlsx";
+                //获取动态列配置文件
+                var titleDict = GetTitleConfig();
 
+                //读取Excel的第一个sheet
+                string filePath = AppContext.BaseDirectory+ "DemoExcel.xlsx";
                 XSSFWorkbook xSSFWorkbook = new XSSFWorkbook(filePath);
-
-                XSSFSheet sheet0 = (XSSFSheet)xSSFWorkbook.GetSheetAt(0);
-                var bodyParts = new List<BodyPart>();
-
-                string body = "";
-                for (int i = 0; i <= sheet0.LastRowNum; i++)
-                {
-                    IRow row = sheet0.GetRow(i);
-
-                    if (!string.IsNullOrEmpty(row.GetCell(7)?.ToString()))
-                    {
-                        body = row.GetCell(7)?.ToString();
-                        bodyParts.Add(new BodyPart
-                        {
-                            body = body,
-                            parts = new List<PartsItem> {
-                            new PartsItem
-                            {
-                                part = row.GetCell(8)?.ToString()
-                            }
-                            }
-                        });
-                    }
-                    else
-                    {
-                        if (!string.IsNullOrEmpty(row.GetCell(8)?.ToString()))
-                        {
-                            bodyParts.LastOrDefault().parts.Add(new PartsItem
-                            {
-                                part = row.GetCell(8)?.ToString()
-                            });
-                        }
-                    }
-
-                }
-                var count = bodyParts.SelectMany(x => x.parts).Count();
-
-
-                List<string> SOURCEparts = bodyParts.SelectMany(x => x.parts).Select(x => x.part).ToList();
-
-                List<SymptomsItemInfo> SymptomsItems = new List<SymptomsItemInfo>();
-                //XSSFSheet sheet1 = (XSSFSheet)xSSFWorkbook.GetSheetAt(1);
-                for (int i = 1; i <= sheet0.LastRowNum; i++)
-                {
-                    IRow row = sheet0.GetRow(i);
-
-                    if (!string.IsNullOrEmpty(row.GetCell(0)?.ToString()))
-                    {
-                        var item = new SymptomsItem();
-
-                        var part = (!string.IsNullOrEmpty(row.GetCell(2)?.ToString())) ? row.GetCell(2)?.ToString() : row.GetCell(1)?.ToString();
-                        var symptom = row.GetCell(0)?.ToString();
-
-                        if (part.Contains("/"))
-                        {
-                            var listpart = part.Split('/');
-                            foreach (var partitem in listpart)
-                            {
-                                SymptomsItems.Add(new SymptomsItemInfo { part = partitem.Trim(), symptom = symptom.Trim() });
-                            }
-                        }
-                        else
-                        {
-                            SymptomsItems.Add(new SymptomsItemInfo { part = part.Trim(), symptom = symptom.Trim() });
-                        }
-                    }
-
-                }
-                List<PartsItem> partsItems = SymptomsItems.GroupBy(x => x.part).Select(x => new PartsItem
-                {
-                    part = x.Key,
-                    symptoms = x.Select(x => new SymptomsItem
-                    {
-                        id = "",
-                        symptom = x.symptom
-                    }).ToList(),
-                }).ToList();
-
-                var count2 = partsItems.SelectMany(x => x.symptoms).Count();
-
-
-                var expcpt = partsItems.Where(x => !SOURCEparts.Contains(x.part)).ToList();
-
-                //合并
-                foreach (var bodyPart in bodyParts)
-                {
-                    foreach (var part in bodyPart.parts)
-                    {
-                        PartsItem partsItem = partsItems.FirstOrDefault(x => x.part == part.part);
-                        if (partsItem != null)
-                        {
-                            List<SymptomsItem> symptoms = partsItem.symptoms;
-                            part.symptoms = symptoms;
-                        }
-
-                    }
-                }
-
-                var count3 = 0;// = (bodyParts.SelectMany(x => x.parts)).SelectMany(x => x.symptoms).Count();
-                foreach (var bodyPart1 in bodyParts)
-                {
-                    foreach (var part in bodyPart1.parts)
-                    {
-                        if (part.symptoms != null)
-                            count3 += part.symptoms.Count;
-                    }
-
-                }
-
-                Console.WriteLine(JsonConvert.SerializeObject(bodyParts));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("错误：" + ex.Message);
-            }
-        }
-
-        public static void ReadLabelExcel()
-        {
-            try
-            {
-                string filePath = "D:/用户关怀标签（编码更新）.xlsx";
-
-                XSSFWorkbook xSSFWorkbook = new XSSFWorkbook(filePath);
-
                 XSSFSheet sheet = (XSSFSheet)xSSFWorkbook.GetSheetAt(0);
-                var labelModels = new List<LabelModel>();
 
-                for (int i = 1; i <= sheet.LastRowNum; i++)
+
+                var list = ExcelHelper.ReadSheetToDict<RoomModel>(sheet, titleDict);
+
+                foreach (var item in list)
                 {
-                    IRow row = sheet.GetRow(i);
-
-                    LabelModel labelModel;
-                    if (!string.IsNullOrEmpty(row.GetCell(0)?.ToString()) && row.GetCell(0)?.ToString() != labelModels.LastOrDefault()?.labelType)
-                    {
-                        labelModel = new LabelModel();
-                        labelModel.labelType = row.GetCell(0)?.ToString();
-
-                        labelModels.Add(labelModel);
-                    }
-                    else
-                    {
-                        labelModel = labelModels.LastOrDefault();
-                    }
-                    if (!string.IsNullOrEmpty(row.GetCell(2)?.ToString()))
-                        labelModel.detail.Add(new labelItem
-                        {
-                            code = row.GetCell(2)?.ToString(),
-                            name = row.GetCell(3)?.ToString(),
-                            explain = row.GetCell(4)?.ToString(),
-                            condition = row.GetCell(5)?.ToString().Replace("/", "|").Split(new char[] { '|', '、' }).ToList(),
-                            type = row.GetCell(7)?.ToString() == "静态标签" ? 0 : 1
-                        });
-
+                    Console.WriteLine($"{item.CommunityName} {item.BuildingName} {item.UnitName} {item.RoomName}");
                 }
-
-
-
-
-                Console.WriteLine(JsonConvert.SerializeObject(labelModels));
             }
             catch (Exception ex)
             {
@@ -192,6 +45,19 @@ namespace ReadExcel
             }
         }
 
+        /// <summary>
+        /// 用 List<string>数组是可以兼容多种列的标题头
+        /// </summary>
+        /// <returns></returns>
+        public static Dictionary<string, List<string>> GetTitleConfig()
+        {
+            //可用json配置文件，这里写死
+            var configString = "{\"CommunityName\":[\"小区\",\"小区名称\"],\"BuildingName\":[\"楼栋\",\"楼 栋\",\"楼栋名称\"],\"UnitName\":[\"单元\",\"单 元\",\"单元名称\"],\"RoomName\":[\"房间\",\"房间号\"]}";
+            
+            Dictionary<string, List<string>> dict = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(configString);
+
+            return dict;
+        }
 
     }
 }
